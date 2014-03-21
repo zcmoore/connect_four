@@ -6,14 +6,14 @@
 
 package connect.four.gui;
 
-import static connect.four.gui.GamePanel.PLAY_TIME;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.*;
+import java.net.URL;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
-public class GUIPiece extends JLabel{
-	
+@SuppressWarnings("serial")
+public class GUIPiece extends JLabel
+{
 	int glowNum;
 	ImageIcon glow1;
 	ImageIcon glow2;
@@ -21,38 +21,47 @@ public class GUIPiece extends JLabel{
 	ImageIcon glow4;
 	ImageIcon[] glowing;
 	
-	public GUIPiece(int playerNum){
-		setSize(145,145);
+	public GUIPiece(int playerNum)
+	{
+		setSize(145, 145);
 		setOpaque(false);
 		setText("");
-		ImageIcon redIcon = new ImageIcon(getClass().getResource("/red_glow/glow1.png"));
-		ImageIcon blueIcon = new ImageIcon(getClass().getResource("/blue_glow/glow1.png"));
-		if(playerNum == 0){
+		ImageIcon redIcon = loadIcon("/red_glow/glow1.png");
+		ImageIcon blueIcon = loadIcon("/blue_glow/glow1.png");
+		if (playerNum == 0)
+		{
 			setIcon(redIcon);
 			glowNum = 0;
-			glow1 = new ImageIcon(getClass().getResource("/red_glow/glow1.png"));
-			glow2 = new ImageIcon(getClass().getResource("/red_glow/glow2.png"));
-			glow3 = new ImageIcon(getClass().getResource("/red_glow/glow3.png"));
-			glow4 = new ImageIcon(getClass().getResource("/red_glow/glow4.png"));
+			glow1 = loadIcon("/red_glow/glow1.png");
+			glow2 = loadIcon("/red_glow/glow2.png");
+			glow3 = loadIcon("/red_glow/glow3.png");
+			glow4 = loadIcon("/red_glow/glow4.png");
 		}
-		else{
+		else
+		{
 			setIcon(blueIcon);
 			glowNum = 1;
-			glow1 = new ImageIcon(getClass().getResource("/blue_glow/glow1.png"));
-			glow2 = new ImageIcon(getClass().getResource("/blue_glow/glow2.png"));
-			glow3 = new ImageIcon(getClass().getResource("/blue_glow/glow3.png"));
-			glow4 = new ImageIcon(getClass().getResource("/blue_glow/glow4.png"));
+			glow1 = loadIcon("/blue_glow/glow1.png");
+			glow2 = loadIcon("/blue_glow/glow2.png");
+			glow3 = loadIcon("/blue_glow/glow3.png");
+			glow4 = loadIcon("/blue_glow/glow4.png");
 		}
 		
-		glowing = new ImageIcon[] {glow1, glow2, glow3, glow4, glow3, glow2};
+		glowing = new ImageIcon[] { glow1, glow2, glow3, glow4, glow3, glow2 };
 		revalidate();
 		repaint();
 		setVisible(true);
 	}
 	
-	ImageIcon getGlow(int index){
+	ImageIcon getGlow(int index)
+	{
 		return glowing[index];
 	}
-
-
+	
+	private ImageIcon loadIcon(String iconPath)
+	{
+		URL iconURL = getClass().getResource(iconPath);
+		return new ImageIcon(iconURL);
+	}
+	
 }

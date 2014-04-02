@@ -10,28 +10,33 @@ import connect.four.board.ReadWritableBoard;
 import connect.four.gui.*;
 import connect.four.player.Player;
 
-
-public class GUIPlayer implements Player {
+public class GUIPlayer implements Player
+{
 	private String m_name;
 	GamePanel gpGUI;
 	ReadWritableBoard board;
 	
-	public GUIPlayer(String name, GamePanel gp){
+	public GUIPlayer(String name, GamePanel gp)
+	{
 		m_name = name;
 		gpGUI = gp;
 	}
 	
-	@Override public String getName(){
+	@Override
+	public String getName()
+	{
 		return m_name;
 	}
 	
-	@Override public void performPlay(ReadWritableBoard board) {
+	@Override
+	public void performPlay(ReadWritableBoard board)
+	{
 		this.board = board;
-		
 		
 	}
 	
-	public ReadWritableBoard getBoard(){
+	public ReadWritableBoard getBoard()
+	{
 		return board;
 	}
 }

@@ -8,7 +8,6 @@ import org.junit.Test;
 import connect.four.board.Board;
 import connect.four.board.ColumnFullException;
 import connect.four.player.ComputerPlayer;
-import connect.four.player.RandomPlayer;
 
 public class TestComputerPlayer
 {

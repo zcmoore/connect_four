@@ -115,4 +115,56 @@ public class TestGame
 		assertEquals(board, game.getBoard());
 	}
 	
+	@Test
+	public void testHorizontalVictory()
+	{
+		for (int startColumn = 0; startColumn < boardWidth; startColumn++)
+		{
+			createHorizontalWin(board, player, startColumn);
+			Player winner = Game.detectWinner(board, 4);
+			assertEquals("Player Win - " + startColumn, player, winner);
+			
+			createHorizontalWin(board, opponent, startColumn);
+			winner = Game.detectWinner(board, 4);
+			assertEquals("Opponent Win - " + startColumn, opponent, winner);
+		}
+	}
+	
+	@Test
+	public void testVerticalVictory()
+	{
+		for (int startColumn = 0; startColumn < boardWidth; startColumn++)
+		{
+			createVerticalWin(board, player, startColumn);
+			Player winner = Game.detectWinner(board, 4);
+			assertEquals("Player Win - " + startColumn, player, winner);
+			
+			createVerticalWin(board, opponent, startColumn);
+			winner = Game.detectWinner(board, 4);
+			assertEquals("Opponent Win - " + startColumn, opponent, winner);
+		}
+	}
+	
+	private void createHorizontalWin(Board board, DummyPlayer player, int column)
+	{
+		board.clear();
+		if (column > boardWidth - 4)
+			column = boardWidth - 4;
+		for (int itt = 0; itt < 4; itt++, column++)
+		{
+			player.setNextMove(column);
+			player.performPlay(board);
+		}
+	}
+	
+	private void createVerticalWin(Board board, DummyPlayer player, int column)
+	{
+		board.clear();
+		player.setNextMove(column);
+		for (int itt = 0; itt < 4; itt++)
+		{
+			player.performPlay(board);
+		}
+	}
+	
 }

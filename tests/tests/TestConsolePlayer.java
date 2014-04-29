@@ -107,12 +107,15 @@ public class TestConsolePlayer
 	@Test
 	public void testSetName()
 	{
-		player = new ConsolePlayer("");
-		
+		// Test 300 different players
 		for (int playerIndex = 0; playerIndex < 300; playerIndex++)
 		{
-			for (int length = 1; length < 25; length++)
+			player = new ConsolePlayer("");
+			
+			// Test 25 different word lengths
+			for (int length = 1; length < 26; length++)
 			{
+				// Test 100 different cases
 				for (int trial = 0; trial < 100; trial++)
 				{
 					String name = randomString(length);

@@ -8,40 +8,77 @@ import connect.four.ScoreChart;
 import connect.four.board.ReadWritableBoard;
 import connect.four.board.ReadableBoard;
 
+/**
+ * Player implementation to be used on the console. ConsolePlayer's
+ * {@link #performPlay(ReadWritableBoard)} algorithm requests and accepts input
+ * from System.in, and uses that to make a move. This implementation is intended
+ * for use with a human player only.
+ * 
+ * @author Moore, Zachary
+ * 
+ */
 public class ConsolePlayer implements Player, ScoreChart.Listener
 {
-	String m_name;
+	/** Name of this player */
+	String name;
 	
+	/**
+	 * Constructs a ConsolePlayer with the specified name.
+	 * 
+	 * @param name
+	 *            Name of the new player
+	 */
 	public ConsolePlayer(String name)
 	{
-		m_name = name;
+		this.name = name;
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see connect.four.player.Player#getName()
+	 */
 	@Override
 	public String getName()
 	{
-		return m_name;
+		return name;
 	}
 	
-	public void setName(String m_name)
+	/**
+	 * @param name
+	 *            New name of this player
+	 */
+	public void setName(String name)
 	{
-		this.m_name = m_name;
+		this.name = name;
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * Prints the current score, and prints the given board.
+	 * 
+	 * @see
+	 * connect.four.ScoreChart.Listener#gameOver(connect.four.player.Player,
+	 * connect.four.ScoreChart, connect.four.board.ReadableBoard)
+	 */
 	@Override
 	public void gameOver(Player winner, ScoreChart scores, ReadableBoard board)
 	{
-		System.out.println(m_name + (winner == this ? " won." : " lost."));
+		System.out.println(name + (winner == this ? " won." : " lost."));
 		dumpBoard(board);
-		System.out.println(m_name + ": " + scores.getScore(this));
+		System.out.println(name + ": " + scores.getScore(this));
 	}
 	
+	/* (non-Javadoc)
+	 * @see connect.four.player.Player#performPlay(connect.four.board.ReadWritableBoard)
+	 */
 	@Override
 	public void performPlay(ReadWritableBoard board)
 	{
 		int width = board.getWidth();
 		
-		System.out.println("\n" + m_name + "'s turn!");
+		System.out.println("\n" + name + "'s turn!");
 		dumpBoard(board);
 		
 		BufferedReader stdin = new BufferedReader(new InputStreamReader(
@@ -67,6 +104,11 @@ public class ConsolePlayer implements Player, ScoreChart.Listener
 		board.play(x - 1, this);
 	}
 	
+	/**
+	 * Prints the given board to the console.
+	 * 
+	 * @param board Board to be printed
+	 */
 	private void dumpBoard(ReadableBoard board)
 	{
 		int width = board.getWidth();

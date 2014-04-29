@@ -4,14 +4,29 @@ import connect.four.board.ReadWritableBoard;
 
 import java.util.Random;
 
+/**
+ * Simple AI implementation of Player, identified by its
+ * {@link #performPlay(ReadWritableBoard)} algorithm, which selects a random
+ * (valid) column, and selects that column to make a move.
+ * 
+ * @see connect.four.player.Player
+ * @author Moore, Zachary
+ * 
+ */
 public class RandomPlayer implements Player
 {
+	/* (non-Javadoc)
+	 * @see connect.four.player.Player#getName()
+	 */
 	@Override
 	public String getName()
 	{
 		return "Computer";
 	}
 	
+	/* (non-Javadoc)
+	 * @see connect.four.player.Player#performPlay(connect.four.board.ReadWritableBoard)
+	 */
 	@Override
 	public void performPlay(ReadWritableBoard board)
 	{
@@ -28,6 +43,7 @@ public class RandomPlayer implements Player
 			}
 			x = chosenX;
 		}
+		
 		board.play(x, this);
 	}
 }

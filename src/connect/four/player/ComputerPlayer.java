@@ -54,9 +54,14 @@ public class ComputerPlayer implements Player
 				}
 				scores[i] = iScore;
 			}
-			while (board.whoPlayed(maxMove, m - 1) != null)
+			int totalMoves = board.getWidth() * board.getHeight();
+			boolean isBoardFull = (totalMoves == board.getMoveCount());
+			if (!isBoardFull)
 			{
-				maxMove = (maxMove + 1) % l;
+				while (board.whoPlayed(maxMove, m - 1) != null)
+				{
+					maxMove = (maxMove + 1) % l;
+				}
 			}
 			System.out.println(Arrays.toString(scores));
 			board.play(maxMove, this);

@@ -65,7 +65,6 @@ public class TestConsolePlayer
 	public void testSetName()
 	{
 		player = new ConsolePlayer("");
-		assertEquals("", player.getName());
 		
 		for (int playerIndex = 0; playerIndex < 300; playerIndex++)
 		{
@@ -74,7 +73,7 @@ public class TestConsolePlayer
 				for (int trial = 0; trial < 100; trial++)
 				{
 					String name = randomString(length);
-					player = new ConsolePlayer(name);
+					player.setName(name);
 					assertEquals(name, player.getName());
 				}
 			}

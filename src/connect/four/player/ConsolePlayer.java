@@ -40,7 +40,6 @@ public class ConsolePlayer implements Player, ScoreChart.Listener
 	public void performPlay(ReadWritableBoard board)
 	{
 		int width = board.getWidth();
-		int height = board.getHeight();
 		
 		System.out.println("\n" + m_name + "'s turn!");
 		dumpBoard(board);

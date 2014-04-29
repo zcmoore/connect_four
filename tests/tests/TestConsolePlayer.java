@@ -41,4 +41,44 @@ public class TestConsolePlayer
 		return string.toString();
 	}
 	
+	@Test
+	public void testConstructor()
+	{
+		player = new ConsolePlayer("");
+		assertEquals("", player.getName());
+		
+		for (int playerIndex = 0; playerIndex < 300; playerIndex++)
+		{
+			for (int length = 1; length < 25; length++)
+			{
+				for (int trial = 0; trial < 100; trial++)
+				{
+					String name = randomString(length);
+					player = new ConsolePlayer(name);
+					assertEquals(name, player.getName());
+				}
+			}
+		}
+	}
+	
+	@Test
+	public void testSetName()
+	{
+		player = new ConsolePlayer("");
+		assertEquals("", player.getName());
+		
+		for (int playerIndex = 0; playerIndex < 300; playerIndex++)
+		{
+			for (int length = 1; length < 25; length++)
+			{
+				for (int trial = 0; trial < 100; trial++)
+				{
+					String name = randomString(length);
+					player = new ConsolePlayer(name);
+					assertEquals(name, player.getName());
+				}
+			}
+		}
+	}
+	
 }

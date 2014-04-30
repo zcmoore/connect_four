@@ -1,7 +1,6 @@
-
 package connect.four.board;
 
-
-public interface ReadWritableBoard extends ReadableBoard, WritableBoard {
+public interface ReadWritableBoard extends ReadableBoard, WritableBoard
+{
 	
 }

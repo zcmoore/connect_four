@@ -9,6 +9,13 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.WindowConstants;
 
+/**
+ * User interface on which a user can play ConnectFour.
+ * 
+ * @see GamePanel
+ * @see MainMenuPanel
+ *
+ */
 @SuppressWarnings("serial")
 public class GUI extends JFrame
 {
@@ -20,6 +27,9 @@ public class GUI extends JFrame
 	String winner;
 	int score1, score2;
 	
+	/**
+	 * Initialize a GUI and set all values to their defaults.
+	 */
 	public GUI()
 	{
 		initComponents();
@@ -30,6 +40,9 @@ public class GUI extends JFrame
 		
 	}
 	
+	/**
+	 * Initialize the GUI
+	 */
 	private void initComponents()
 	{
 		
@@ -47,6 +60,12 @@ public class GUI extends JFrame
 		pack();
 	}
 	
+	/**
+	 * Initializes a GamePanel and attempts to set the look and feel to Nimbus,
+	 * then starts a game.
+	 * 
+	 * @param args
+	 */
 	public static void main(String args[])
 	{
 		/* Set the Nimbus look and feel */
@@ -95,6 +114,9 @@ public class GUI extends JFrame
 		
 	}
 	
+	/**
+	 * Wrapper function included for convenience. Writes a message to the log.
+	 */
 	private static void logException(Level level, String msg, Throwable thrown)
 	{
 		Logger.getLogger(GUI.class.getName()).log(level, msg, thrown);

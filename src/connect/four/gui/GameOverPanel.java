@@ -1,8 +1,8 @@
 package connect.four.gui;
 
+@SuppressWarnings("serial")
 public class GameOverPanel extends javax.swing.JPanel
 {
-	
 	GUI gui;
 	
 	public GameOverPanel(GUI gui, String winner)

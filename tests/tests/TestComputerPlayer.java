@@ -24,7 +24,7 @@ public class TestComputerPlayer
 		final int boardWidth = 5;
 		final int boardHeight = 5;
 		Board board = new Board(boardWidth, boardHeight);
-		ComputerPlayer computerPlayer = new ComputerPlayer();
+		ComputerPlayer computerPlayer = new ComputerPlayer(6);
 		ComputerPlayer computerOpponent = new ComputerPlayer();
 		assertEquals("Computer", computerPlayer.getName());
 		

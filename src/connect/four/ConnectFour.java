@@ -4,14 +4,21 @@ import java.io.*;
 import connect.four.player.*;
 import connect.four.board.*;
 
+/**
+ * Main class used for playing a console version of ConnectFour. This class uses
+ * ConsolePlayer to interface the user to the board, and supports only human
+ * players. For a GUI implementation of ConnectFour, see connect.four.GUI.GUI.
+ * 
+ * @see connect.four.GUI.GUI
+ * @see connect.four.player.ConsolePlayer
+ * 
+ */
 public class ConnectFour
 {
-	
 	/**
 	 * @param args
-	 *            the command line arguments
+	 *            the command line arguments; unused
 	 */
-	
 	public static void main(String[] args) throws IOException
 	{
 		BufferedReader stdin = new BufferedReader(new InputStreamReader(

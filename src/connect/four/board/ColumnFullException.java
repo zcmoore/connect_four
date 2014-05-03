@@ -4,8 +4,6 @@ package connect.four.board;
  * Extension of IndexOutOfBoundsException which indicates that a method
  * attempted to add a piece to an already full column of a board.
  * 
- * @author Moore, Zachary
- * 
  */
 @SuppressWarnings("serial")
 public class ColumnFullException extends IndexOutOfBoundsException

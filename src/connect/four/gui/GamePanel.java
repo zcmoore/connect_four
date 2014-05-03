@@ -7,9 +7,12 @@
 package connect.four.gui;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -41,14 +44,14 @@ public class GamePanel extends JPanel implements ScoreChart.Listener
 	private boolean isComputerEnabled;
 	private boolean justWon;
 	
-	private JLabel bgImage;
-	private JPanel col1;
-	private JPanel col2;
-	private JPanel col3;
-	private JPanel col4;
-	private JPanel col5;
-	private JPanel col6;
-	private JPanel col7;
+	private JLabel backgroundImage;
+	private JPanel column1;
+	private JPanel column2;
+	private JPanel column3;
+	private JPanel column4;
+	private JPanel column5;
+	private JPanel column6;
+	private JPanel column7;
 	private JLabel currentWins;
 	private JLabel pNameDisplay;
 	private JLabel player1NameBox;
@@ -98,7 +101,7 @@ public class GamePanel extends JPanel implements ScoreChart.Listener
 			this.column = column;
 		}
 		
-		public void mouseClicked(java.awt.event.MouseEvent evt)
+		public void mouseClicked(MouseEvent evt)
 		{
 			super.mouseClicked(evt);
 			if (game.getCurrentPlayer() != players[1] || !isComputerEnabled)
@@ -107,12 +110,12 @@ public class GamePanel extends JPanel implements ScoreChart.Listener
 			}
 		}
 		
-		public void mouseExited(java.awt.event.MouseEvent evt)
+		public void mouseExited(MouseEvent evt)
 		{
 			super.mouseExited(evt);
 		}
 		
-		public void mouseEntered(java.awt.event.MouseEvent evt)
+		public void mouseEntered(MouseEvent evt)
 		{
 			super.mouseEntered(evt);
 			calcNewPos(column - 1);
@@ -154,101 +157,101 @@ public class GamePanel extends JPanel implements ScoreChart.Listener
 		currentWins = new JLabel();
 		pNameDisplay = new JLabel();
 		turnDisplay = new JLabel();
-		col1 = new JPanel();
-		col2 = new JPanel();
-		col3 = new JPanel();
-		col4 = new JPanel();
-		col5 = new JPanel();
-		col6 = new JPanel();
+		column1 = new JPanel();
+		column2 = new JPanel();
+		column3 = new JPanel();
+		column4 = new JPanel();
+		column5 = new JPanel();
+		column6 = new JPanel();
 		topGlass = new JPanel();
-		col7 = new JPanel();
+		column7 = new JPanel();
 		player2NameBox = new JLabel();
-		bgImage = new JLabel();
+		backgroundImage = new JLabel();
 		
-		setBackground(new java.awt.Color(0, 0, 0));
-		setPreferredSize(new java.awt.Dimension(1280, 800));
+		setBackground(new Color(0, 0, 0));
+		setPreferredSize(new Dimension(1280, 800));
 		setLayout(null);
 		
-		player1NameBox.setFont(new java.awt.Font("Lucida Grande", 0, 18));
-		player1NameBox.setForeground(new java.awt.Color(255, 255, 255));
+		player1NameBox.setFont(new Font("Lucida Grande", 0, 18));
+		player1NameBox.setForeground(new Color(255, 255, 255));
 		player1NameBox.setText("player 1");
 		add(player1NameBox);
 		player1NameBox.setBounds(1070, 40, 210, 40);
 		
-		currentWins.setFont(new java.awt.Font("Lucida Grande", 0, 18));
-		currentWins.setForeground(new java.awt.Color(255, 255, 255));
+		currentWins.setFont(new Font("Lucida Grande", 0, 18));
+		currentWins.setForeground(new Color(255, 255, 255));
 		currentWins.setText("CURRENT WINS");
 		add(currentWins);
 		currentWins.setBounds(1070, 0, 200, 40);
 		
-		pNameDisplay.setFont(new java.awt.Font("Lucida Grande", 0, 18));
-		pNameDisplay.setForeground(new java.awt.Color(255, 255, 255));
+		pNameDisplay.setFont(new Font("Lucida Grande", 0, 18));
+		pNameDisplay.setForeground(new Color(255, 255, 255));
 		pNameDisplay.setText("jLabel2");
 		add(pNameDisplay);
 		pNameDisplay.setBounds(1070, 210, 200, 40);
 		
-		turnDisplay.setFont(new java.awt.Font("Lucida Grande", 0, 18));
-		turnDisplay.setForeground(new java.awt.Color(255, 255, 255));
+		turnDisplay.setFont(new Font("Lucida Grande", 0, 18));
+		turnDisplay.setForeground(new Color(255, 255, 255));
 		turnDisplay.setText("jLabel2");
 		add(turnDisplay);
 		turnDisplay.setBounds(1070, 150, 200, 40);
 		
-		col1.setBackground(new java.awt.Color(102, 102, 102));
-		col1.setOpaque(false);
-		col1.addMouseListener(new ColumnMouseAdapter(1));
-		col1.setLayout(null);
-		add(col1);
-		col1.setBounds(0, 0, 310, 740);
+		column1.setBackground(new Color(102, 102, 102));
+		column1.setOpaque(false);
+		column1.addMouseListener(new ColumnMouseAdapter(1));
+		column1.setLayout(null);
+		add(column1);
+		column1.setBounds(0, 0, 310, 740);
 		
-		col2.setBackground(new java.awt.Color(102, 102, 102));
-		col2.setOpaque(false);
-		col2.addMouseListener(new ColumnMouseAdapter(2));
-		col2.setLayout(null);
-		add(col2);
-		col2.setBounds(320, 0, 80, 740);
+		column2.setBackground(new Color(102, 102, 102));
+		column2.setOpaque(false);
+		column2.addMouseListener(new ColumnMouseAdapter(2));
+		column2.setLayout(null);
+		add(column2);
+		column2.setBounds(320, 0, 80, 740);
 		
-		col3.setBackground(new java.awt.Color(102, 102, 102));
-		col3.setOpaque(false);
-		col3.addMouseListener(new ColumnMouseAdapter(3));
-		col3.setLayout(null);
-		add(col3);
-		col3.setBounds(410, 10, 80, 740);
+		column3.setBackground(new Color(102, 102, 102));
+		column3.setOpaque(false);
+		column3.addMouseListener(new ColumnMouseAdapter(3));
+		column3.setLayout(null);
+		add(column3);
+		column3.setBounds(410, 10, 80, 740);
 		
-		col4.setBackground(new java.awt.Color(102, 102, 102));
-		col4.setOpaque(false);
-		col4.addMouseListener(new ColumnMouseAdapter(4));
-		col4.setLayout(null);
-		add(col4);
-		col4.setBounds(500, -10, 80, 740);
+		column4.setBackground(new Color(102, 102, 102));
+		column4.setOpaque(false);
+		column4.addMouseListener(new ColumnMouseAdapter(4));
+		column4.setLayout(null);
+		add(column4);
+		column4.setBounds(500, -10, 80, 740);
 		
-		col5.setBackground(new java.awt.Color(102, 102, 102));
-		col5.setOpaque(false);
-		col5.addMouseListener(new ColumnMouseAdapter(5));
-		col5.setLayout(null);
-		add(col5);
-		col5.setBounds(590, 0, 80, 740);
+		column5.setBackground(new Color(102, 102, 102));
+		column5.setOpaque(false);
+		column5.addMouseListener(new ColumnMouseAdapter(5));
+		column5.setLayout(null);
+		add(column5);
+		column5.setBounds(590, 0, 80, 740);
 		
-		col6.setBackground(new java.awt.Color(102, 102, 102));
-		col6.setOpaque(false);
-		col6.addMouseListener(new ColumnMouseAdapter(6));
-		col6.setLayout(null);
-		add(col6);
-		col6.setBounds(680, -30, 80, 740);
+		column6.setBackground(new Color(102, 102, 102));
+		column6.setOpaque(false);
+		column6.addMouseListener(new ColumnMouseAdapter(6));
+		column6.setLayout(null);
+		add(column6);
+		column6.setBounds(680, -30, 80, 740);
 		
-		topGlass.setBackground(new java.awt.Color(102, 102, 102));
+		topGlass.setBackground(new Color(102, 102, 102));
 		topGlass.setOpaque(false);
 		topGlass.setLayout(null);
 		
-		col7.setBackground(new java.awt.Color(102, 102, 102));
-		col7.setOpaque(false);
-		col7.addMouseListener(new ColumnMouseAdapter(7));
-		col7.setLayout(null);
+		column7.setBackground(new Color(102, 102, 102));
+		column7.setOpaque(false);
+		column7.addMouseListener(new ColumnMouseAdapter(7));
+		column7.setLayout(null);
 		// topGlass.add(col7);
-		add(col7);
-		col7.setBounds(770, 0, 300, 740);
+		add(column7);
+		column7.setBounds(770, 0, 300, 740);
 		
-		player2NameBox.setFont(new java.awt.Font("Lucida Grande", 0, 18));
-		player2NameBox.setForeground(new java.awt.Color(255, 255, 255));
+		player2NameBox.setFont(new Font("Lucida Grande", 0, 18));
+		player2NameBox.setForeground(new Color(255, 255, 255));
 		player2NameBox.setText("player 1");
 		topGlass.add(player2NameBox);
 		player2NameBox.setBounds(1070, 90, 210, 40);
@@ -256,11 +259,10 @@ public class GamePanel extends JPanel implements ScoreChart.Listener
 		add(topGlass);
 		topGlass.setBounds(0, 0, 1280, 800);
 		
-		bgImage.setIcon(new ImageIcon(getClass().getResource("/board.png")));
-		bgImage.setText("jLabel1");
-		bgImage.setIgnoreRepaint(true);
-		add(bgImage);
-		bgImage.setBounds(0, 150, 1070, 590);
+		backgroundImage.setIcon(new ImageIcon(getClass().getResource("/board.png")));
+		backgroundImage.setIgnoreRepaint(true);
+		add(backgroundImage);
+		backgroundImage.setBounds(0, 150, 1070, 590);
 	}
 	
 	void dropPiece()
@@ -287,7 +289,6 @@ public class GamePanel extends JPanel implements ScoreChart.Listener
 					y = getTargetY();
 					((Timer) (e.getSource())).stop();
 					falling = false;
-					System.out.println("Piece fell.");
 					if (!isComputerEnabled)
 					{
 						GUIPlayer player = (GUIPlayer) game.getCurrentPlayer();

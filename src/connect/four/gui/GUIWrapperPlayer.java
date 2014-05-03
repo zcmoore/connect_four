@@ -6,7 +6,6 @@
 
 package connect.four.gui;
 
-import connect.four.board.Board;
 import connect.four.board.ReadWritableBoard;
 import connect.four.player.Player;
 
@@ -84,6 +83,18 @@ public class GUIWrapperPlayer implements Player
 			public void clear()
 			{
 				board.clear();
+			}
+
+			@Override
+			public boolean isColumnFull(int columnIndex)
+			{
+				return board.isColumnFull(columnIndex);
+			}
+
+			@Override
+			public boolean isFull()
+			{
+				return board.isFull();
 			}
 			
 		};

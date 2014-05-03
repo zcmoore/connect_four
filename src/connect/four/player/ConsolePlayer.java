@@ -14,8 +14,6 @@ import connect.four.board.ReadableBoard;
  * from System.in, and uses that to make a move. This implementation is intended
  * for use with a human player only.
  * 
- * @author Moore, Zachary
- * 
  */
 public class ConsolePlayer implements Player, ScoreChart.Listener
 {

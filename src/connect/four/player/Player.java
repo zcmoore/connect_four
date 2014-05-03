@@ -10,7 +10,6 @@ import connect.four.board.ReadWritableBoard;
  * Players must have a name, and an algorithm to play a piece on a board.
  * 
  * @see connect.four.board.Board
- * @author Moore, Zachary
  * 
  */
 public interface Player

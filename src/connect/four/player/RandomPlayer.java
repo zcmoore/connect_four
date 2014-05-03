@@ -10,7 +10,6 @@ import java.util.Random;
  * (valid) column, and selects that column to make a move.
  * 
  * @see connect.four.player.Player
- * @author Moore, Zachary
  * 
  */
 public class RandomPlayer implements Player

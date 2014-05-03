@@ -74,16 +74,30 @@ public class Board implements ReadWritableBoard
 		m_moveCount += 1;
 	}
 	
-	public @Override
-	int getColumnHeight(int x)
+	@Override
+	public int getColumnHeight(int x)
 	{
 		int y = 0;
 		int l = m_contents[0].length;
+		
 		while (y != l && m_contents[x][y] != null)
 		{
 			y += 1;
 		}
+		
 		return y;
+	}
+	
+	@Override
+	public boolean isColumnFull(int columnIndex)
+	{
+		return getColumnHeight(columnIndex) >= 6;
+	}
+	
+	@Override
+	public boolean isFull()
+	{
+		return (getWidth() * getHeight()) == getMoveCount();
 	}
 	
 	public @Override

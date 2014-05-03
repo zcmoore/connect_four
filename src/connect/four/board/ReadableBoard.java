@@ -13,4 +13,8 @@ public interface ReadableBoard
 	int getColumnHeight(int x);
 	
 	int getMoveCount();
+
+	boolean isColumnFull(int columnIndex);
+
+	boolean isFull();
 }

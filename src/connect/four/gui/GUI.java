@@ -1,18 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package connect.four.gui;
 
-import connect.four.*;
-import connect.four.board.*;
-import connect.four.player.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class GUI extends javax.swing.JFrame
+import javax.swing.GroupLayout;
+import javax.swing.JFrame;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.WindowConstants;
+
+/**
+ * User interface on which a user can play ConnectFour.
+ * 
+ * @see GamePanel
+ * @see MainMenuPanel
+ *
+ */
+@SuppressWarnings("serial")
+public class GUI extends JFrame
 {
-	
 	MainMenuPanel mainMenu;
 	GamePanel gamePanel;
 	GameOverPanel gameOverPanel;
@@ -21,43 +27,48 @@ public class GUI extends javax.swing.JFrame
 	String winner;
 	int score1, score2;
 	
+	/**
+	 * Initialize a GUI and set all values to their defaults.
+	 */
 	public GUI()
 	{
 		initComponents();
 		score1 = 0;
 		score2 = 0;
-		// gamePanel = new GamePanel(this);
 		mainMenu = new MainMenuPanel(this);
 		add(mainMenu);
 		
 	}
 	
-	@SuppressWarnings("unchecked")
-	// <editor-fold defaultstate="collapsed"
-	// desc="Generated Code">//GEN-BEGIN:initComponents
+	/**
+	 * Initialize the GUI
+	 */
 	private void initComponents()
 	{
 		
-		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
-				getContentPane());
+		GroupLayout layout = new GroupLayout(getContentPane());
 		getContentPane().setLayout(layout);
+		
 		layout.setHorizontalGroup(layout.createParallelGroup(
-				javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 1280,
-				Short.MAX_VALUE));
+				GroupLayout.Alignment.LEADING).addGap(0, 1280, Short.MAX_VALUE));
+		
 		layout.setVerticalGroup(layout.createParallelGroup(
-				javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 800,
-				Short.MAX_VALUE));
+				GroupLayout.Alignment.LEADING).addGap(0, 800, Short.MAX_VALUE));
 		
 		pack();
-	}// </editor-fold>//GEN-END:initComponents
+	}
 	
+	/**
+	 * Initializes a GamePanel and attempts to set the look and feel to Nimbus,
+	 * then starts a game.
+	 * 
+	 * @param args
+	 */
 	public static void main(String args[])
 	{
 		/* Set the Nimbus look and feel */
-		// <editor-fold defaultstate="collapsed"
-		// desc=" Look and feel setting code (optional) ">
 		/*
 		 * If Nimbus (introduced in Java SE 6) is not available, stay with the
 		 * default look and feel. For details see
@@ -66,37 +77,32 @@ public class GUI extends javax.swing.JFrame
 		 */
 		try
 		{
-			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager
+			for (UIManager.LookAndFeelInfo info : UIManager
 					.getInstalledLookAndFeels())
 			{
 				if ("Nimbus".equals(info.getName()))
 				{
-					javax.swing.UIManager.setLookAndFeel(info.getClassName());
+					UIManager.setLookAndFeel(info.getClassName());
 					break;
 				}
 			}
 		}
 		catch (ClassNotFoundException ex)
 		{
-			java.util.logging.Logger.getLogger(GUI.class.getName()).log(
-					java.util.logging.Level.SEVERE, null, ex);
+			logException(Level.SEVERE, null, ex);
 		}
 		catch (InstantiationException ex)
 		{
-			java.util.logging.Logger.getLogger(GUI.class.getName()).log(
-					java.util.logging.Level.SEVERE, null, ex);
+			logException(Level.SEVERE, null, ex);
 		}
 		catch (IllegalAccessException ex)
 		{
-			java.util.logging.Logger.getLogger(GUI.class.getName()).log(
-					java.util.logging.Level.SEVERE, null, ex);
+			logException(Level.SEVERE, null, ex);
 		}
-		catch (javax.swing.UnsupportedLookAndFeelException ex)
+		catch (UnsupportedLookAndFeelException ex)
 		{
-			java.util.logging.Logger.getLogger(GUI.class.getName()).log(
-					java.util.logging.Level.SEVERE, null, ex);
+			logException(Level.SEVERE, null, ex);
 		}
-		// </editor-fold>
 		
 		/* Create and display the form */
 		java.awt.EventQueue.invokeLater(new Runnable() {
@@ -108,11 +114,17 @@ public class GUI extends javax.swing.JFrame
 		
 	}
 	
-	// Methods
+	/**
+	 * Wrapper function included for convenience. Writes a message to the log.
+	 */
+	private static void logException(Level level, String msg, Throwable thrown)
+	{
+		Logger.getLogger(GUI.class.getName()).log(level, msg, thrown);
+	}
 	
+	// Methods
 	void updateDisplay()
 	{
-		
 		revalidate();
 		repaint();
 	}
@@ -120,13 +132,11 @@ public class GUI extends javax.swing.JFrame
 	void setPlayer1Name(String name)
 	{
 		p1Name = name;
-		System.out.println("Player 1's name set to " + name);
 	}
 	
 	void setPlayer2Name(String name)
 	{
 		p2Name = name;
-		System.out.println("Player 2's name set to " + name);
 	}
 	
 	String getPlayer1Name()
@@ -141,7 +151,7 @@ public class GUI extends javax.swing.JFrame
 	
 	void addGamePanel()
 	{
-		gamePanel = new GamePanel(this, mainMenu.getIsEnabled());
+		gamePanel = new GamePanel(this, mainMenu.isAIEnabled());
 		add(gamePanel);
 	}
 	
@@ -161,7 +171,6 @@ public class GUI extends javax.swing.JFrame
 	void addGameOver()
 	{
 		remove(gamePanel);
-		System.out.println("New Game Over Panel added");
 		gameOverPanel = new GameOverPanel(this, winner);
 		add(gameOverPanel);
 		updateDisplay();
@@ -191,7 +200,4 @@ public class GUI extends javax.swing.JFrame
 	{
 		score2 = newScore;
 	}
-	
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	// End of variables declaration//GEN-END:variables
 }

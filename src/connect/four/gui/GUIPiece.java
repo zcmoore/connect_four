@@ -25,7 +25,6 @@ public class GUIPiece extends JLabel
 	{
 		setSize(145, 145);
 		setOpaque(false);
-		setText("");
 		ImageIcon redIcon = loadIcon("/red_glow/glow1.png");
 		ImageIcon blueIcon = loadIcon("/blue_glow/glow1.png");
 		if (playerNum == 0)
@@ -40,7 +39,7 @@ public class GUIPiece extends JLabel
 		else
 		{
 			setIcon(blueIcon);
-			glowNum = 1;
+			glowNum = 0;
 			glow1 = loadIcon("/blue_glow/glow1.png");
 			glow2 = loadIcon("/blue_glow/glow2.png");
 			glow3 = loadIcon("/blue_glow/glow3.png");

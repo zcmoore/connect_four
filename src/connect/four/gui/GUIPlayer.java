@@ -7,27 +7,42 @@
 package connect.four.gui;
 
 import connect.four.board.ReadWritableBoard;
-import connect.four.gui.*;
 import connect.four.player.Player;
 
+/**
+ * Human player to play on GamePanel
+ *
+ */
 public class GUIPlayer implements Player
 {
 	private String m_name;
 	GamePanel gpGUI;
 	ReadWritableBoard board;
 	
+	/**
+	 * Create a player with the specified name, who plays on the given GUI
+	 * 
+	 * @param name Name of the player
+	 * @param gp GamePanel on which to play
+	 */
 	public GUIPlayer(String name, GamePanel gp)
 	{
 		m_name = name;
 		gpGUI = gp;
 	}
 	
+	/* (non-Javadoc)
+	 * @see connect.four.player.Player#getName()
+	 */
 	@Override
 	public String getName()
 	{
 		return m_name;
 	}
 	
+	/* (non-Javadoc)
+	 * @see connect.four.player.Player#performPlay(connect.four.board.ReadWritableBoard)
+	 */
 	@Override
 	public void performPlay(ReadWritableBoard board)
 	{
@@ -35,6 +50,9 @@ public class GUIPlayer implements Player
 		
 	}
 	
+	/**
+	 * @return Board used by this player
+	 */
 	public ReadWritableBoard getBoard()
 	{
 		return board;

@@ -1,8 +1,8 @@
 package connect.four.gui;
 
+@SuppressWarnings("serial")
 public class GameOverPanel extends javax.swing.JPanel
 {
-	
 	GUI gui;
 	
 	public GameOverPanel(GUI gui, String winner)
@@ -15,7 +15,6 @@ public class GameOverPanel extends javax.swing.JPanel
 		setVisible(true);
 	}
 	
-	@SuppressWarnings("unchecked")
 	// <editor-fold defaultstate="collapsed"
 	// desc="Generated Code">//GEN-BEGIN:initComponents
 	private void initComponents()

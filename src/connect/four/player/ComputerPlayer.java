@@ -60,14 +60,15 @@ public class ComputerPlayer implements Player
 	{
 		int l = board.getWidth();
 		int m = board.getHeight();
+		Random random = (new Random());
 		if (board.getMoveCount() == 0)
 		{
-			board.play((new Random()).nextInt(l), this);
+			board.play(random.nextInt(l), this);
 		}
 		else
 		{
 			Player opponent = getOpponent(board);
-			int maxMove = (new Random()).nextInt(l);
+			int maxMove = random.nextInt(l);
 			long maxScore = scoreMove(maxMove, depth, board, opponent);
 			long[] scores = new long[l];
 			for (int i = 0; i != l; ++i)

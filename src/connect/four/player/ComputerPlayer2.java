@@ -90,7 +90,8 @@ public class ComputerPlayer2 implements Player
 		
 		if (board.getMoveCount() == 0)
 		{
-			bestMove = (new Random()).nextInt(width);
+			Random random = (new Random());
+			bestMove = random.nextInt(width);
 		}
 		else if (board.isFull())
 		{

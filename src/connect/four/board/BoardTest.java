@@ -1,13 +1,13 @@
 package connect.four.board;
 
 import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import connect.four.player.ComputerPlayer;
 import connect.four.player.ConsolePlayer;
 import connect.four.player.Player;
+import connect.four.board.Board;
 
 
 public class BoardTest
@@ -59,7 +59,10 @@ public class BoardTest
 	@Test
 	public void testBoardReadableBoard()
 	{
-		fail("Not yet implemented");
+		ReadableBoard copy1 = new Board(test1);
+		ReadableBoard copy2 = new Board(test2);
+		assertEquals(test1.getHeight(), copy1.getHeight());
+		assertEquals(test2.getHeight(), copy2.getHeight());		
 	}
 	
 	@Test

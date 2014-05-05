@@ -116,10 +116,10 @@ public class Board extends JDialog implements ReadWritableBoard
 	void play(int x, Player p)
 	{
 		int y = getColumnHeight(x);
-		if (y == boardContents[x].length)
+		/*if (y == boardContents[x].length)
 		{
 			throw new ColumnFullException();
-		}
+		}*/
 		boardContents[x][y] = p;
 		moveCount += 1;
 	}
@@ -139,7 +139,6 @@ public class Board extends JDialog implements ReadWritableBoard
 		{
 			y += 1;
 		}
-		
 		return y;
 	}
 	

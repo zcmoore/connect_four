@@ -30,7 +30,7 @@ public class ComputerPlayer2 implements Player
 	int depth;
 	
 	/**
-	 * Constructs a CompiterPlayer object with the specified depth
+	 * Constructs a ComputerPlayer object with the specified depth
 	 * 
 	 * @param depth
 	 */
@@ -40,7 +40,7 @@ public class ComputerPlayer2 implements Player
 	}
 	
 	/**
-	 * Constructs a CompiterPlayer object with the default depth (6)
+	 * Constructs a ComputerPlayer object with the default depth (6)
 	 * 
 	 * @see #ComputerPlayer(int)
 	 */

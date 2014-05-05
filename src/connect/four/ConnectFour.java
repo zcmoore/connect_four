@@ -21,8 +21,7 @@ public class ConnectFour
 	 */
 	public static void main(String[] args) throws IOException
 	{
-		BufferedReader stdin = new BufferedReader(new InputStreamReader(
-				System.in));
+		BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
 		System.out.print("Player's name: ");
 		ConsolePlayer p1 = new ConsolePlayer(stdin.readLine());
 		System.out.print("How many players (1/2)?");

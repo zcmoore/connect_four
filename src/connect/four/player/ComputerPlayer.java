@@ -4,8 +4,11 @@ import connect.four.board.Board;
 import connect.four.board.ReadableBoard;
 import connect.four.board.ReadWritableBoard;
 import connect.four.Game;
+
 import java.util.Arrays;
 import java.util.Random;
+
+import javax.swing.JDialog;
 
 /**
  * AI implementation of Player, identified by its
@@ -16,7 +19,7 @@ import java.util.Random;
  * @see connect.four.player.Player
  * 
  */
-public class ComputerPlayer implements Player
+public class ComputerPlayer extends JDialog implements Player
 {
 	/**
 	 * How many moves this AI will think ahead, when determining its next move.

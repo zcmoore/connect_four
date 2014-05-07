@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import javax.swing.JDialog;
+
 import connect.four.ScoreChart;
 import connect.four.board.ReadWritableBoard;
 import connect.four.board.ReadableBoard;
@@ -15,7 +17,7 @@ import connect.four.board.ReadableBoard;
  * for use with a human player only.
  * 
  */
-public class ConsolePlayer implements Player, ScoreChart.Listener
+public class ConsolePlayer extends JDialog implements Player, ScoreChart.Listener
 {
 	/** Name of this player */
 	String name;

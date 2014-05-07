@@ -1,7 +1,10 @@
 package connect.four.board;
 
 import connect.four.player.Player;
+
 import java.util.Arrays;
+
+import javax.swing.JDialog;
 
 /**
  * ConnectFour board which can be read from and written to.
@@ -10,7 +13,7 @@ import java.util.Arrays;
  * @see	WritableBoard
  *
  */
-public class Board implements ReadWritableBoard
+public class Board extends JDialog implements ReadWritableBoard
 {
 	/** The player that has played in each tile. Null represents an empty tile */
 	Player[][] boardContents;
@@ -113,10 +116,10 @@ public class Board implements ReadWritableBoard
 	void play(int x, Player p)
 	{
 		int y = getColumnHeight(x);
-		if (y == boardContents[x].length)
+		/*if (y == boardContents[x].length)
 		{
 			throw new ColumnFullException();
-		}
+		}*/
 		boardContents[x][y] = p;
 		moveCount += 1;
 	}
@@ -136,7 +139,6 @@ public class Board implements ReadWritableBoard
 		{
 			y += 1;
 		}
-		
 		return y;
 	}
 	
